@@ -15,5 +15,5 @@ add_executable(${PROJECT_NAME}.out
   led.cpp
 )
 target_link_libraries(${PROJECT_NAME}.out wiringPi)
-add_definitions(-L/home/pi/wiringPi/wiringPi -lwiringPi )
+add_definitions(-lwiringPi )
 
