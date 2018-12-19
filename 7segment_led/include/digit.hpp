@@ -22,14 +22,14 @@ private:
 //  static const std::unordered_map<int, >
 };
 
-const std::bitset<8> Digit::led_a {"10000000"};
-const std::bitset<8> Digit::led_b {"01000000"};
-const std::bitset<8> Digit::led_c {"00100000"};
-const std::bitset<8> Digit::led_d {"00010000"};
-const std::bitset<8> Digit::led_e {"00001000"};
-const std::bitset<8> Digit::led_f {"00000100"};
-const std::bitset<8> Digit::led_g {"00000010"};
-const std::bitset<8> Digit::led_dp{"00000001"};
+const std::bitset<8> Digit::led_a {"00000001"};
+const std::bitset<8> Digit::led_b {"00000010"};
+const std::bitset<8> Digit::led_c {"00000100"};
+const std::bitset<8> Digit::led_d {"00001000"};
+const std::bitset<8> Digit::led_e {"00010000"};
+const std::bitset<8> Digit::led_f {"00100000"};
+const std::bitset<8> Digit::led_g {"01000000"};
+const std::bitset<8> Digit::led_dp{"10000000"};
 
 
 const std::unordered_map<int, std::bitset<8> > Digit::number_led_table {

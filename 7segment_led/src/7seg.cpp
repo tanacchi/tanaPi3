@@ -1,3 +1,4 @@
+#include <iostream>
 #include <wiringPi.h>
 #include <vector>
 
@@ -24,7 +25,7 @@ void clear()
   digitalWrite(14, 0);
   digitalWrite(15, 0);
   digitalWrite(18, 0);
-  
+
   digitalWrite(17, 1);
   digitalWrite(22, 1);
   digitalWrite(19, 1);
@@ -59,38 +60,25 @@ int main()
 
   clear();
 
+  std::bitset<8> digit = Digit::get_ledset(7);
+
   digitalWrite(14, 1);
-  digitalWrite(15, 1);
-  digitalWrite(18, 1);
-  
-  digitalWrite(17, 0);
-  digitalWrite(22, 0);
-  digitalWrite(19, 0);
-  digitalWrite(6,  0);
-  digitalWrite(5,  0);
-  digitalWrite(27, 0);
-  digitalWrite(26, 0);
-  digitalWrite(13, 0);
-  
-  clear();
 
-  // test code
-  std::vector<int> digs = {14, 15, 18};
-  for (int i = 0; i < 3; ++i) 
+  while (true) 
   {
-    digitalWrite(digs[i], 1);
-    for (int j = 0; j < pins.size(); ++j)
+    for (std::size_t i{0}; i < digit.size(); ++i)
     {
-      test(j);
+      if (digit[i]) 
+      {
+        digitalWrite(pins[i], 0);
+      } 
+      else {
+        digitalWrite(pins[i], 1);
+      }
+      std::cout << digit[i]  << std::endl;
     }
-    clear();
+    std::cout << "=======" << std::endl;
   }
-
-  delay(950);
-
-  digitalWrite(14, 0);
-  digitalWrite(15, 0);
-  digitalWrite(18, 0);
 
   return 0;
 }
