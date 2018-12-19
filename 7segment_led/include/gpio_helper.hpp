@@ -1,5 +1,5 @@
-#ifndef GPIO_HELPER_HPP
-#define GPIO_HELPER_HPP
+#ifndef INCLUDED_GPIO_HELPER_HPP
+#define INCLUDED_GPIO_HELPER_HPP
 
 #include <unordered_map>
 #include <map>
@@ -55,4 +55,4 @@ const std::map<int, int> GpioHelper::gpio_pin_table {
   {38, GPIO20}, {40, GPIO21},
 }};
 
-#endif  // GPIO_HELPER_HPP
+#endif  // INCLUDED_GPIO_HELPER_HPP
