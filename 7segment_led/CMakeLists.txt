@@ -17,7 +17,7 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME}.out
-  7seg.cpp
+  ${PROJECT_SOURCE_DIR}/src/7seg.cpp
 )
 target_link_libraries(${PROJECT_NAME}.out wiringPi)
 add_definitions(-lwiringPi )
