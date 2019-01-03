@@ -22,18 +22,18 @@ void test(int pin)
 
 void clear()
 {
-  digitalWrite(14, 0);
-  digitalWrite(15, 0);
-  digitalWrite(18, 0);
+  digitalWrite(GpioHelper::to_gpio( 8), 0);
+  digitalWrite(GpioHelper::to_gpio(10), 0);
+  digitalWrite(GpioHelper::to_gpio(12), 0);
 
-  digitalWrite(17, 1);
-  digitalWrite(22, 1);
-  digitalWrite(19, 1);
-  digitalWrite(6,  1);
-  digitalWrite(5,  1);
-  digitalWrite(27, 1);
-  digitalWrite(26, 1);
-  digitalWrite(13, 1);
+  digitalWrite(GpioHelper::to_gpio(11), 1);
+  digitalWrite(GpioHelper::to_gpio(15), 1);
+  digitalWrite(GpioHelper::to_gpio(35), 1);
+  digitalWrite(GpioHelper::to_gpio(31), 1);
+  digitalWrite(GpioHelper::to_gpio(29), 1);
+  digitalWrite(GpioHelper::to_gpio(13), 1);
+  digitalWrite(GpioHelper::to_gpio(37), 1);
+  digitalWrite(GpioHelper::to_gpio(33), 1);
 }
 
 int main()
@@ -63,7 +63,9 @@ int main()
   std::bitset<8> digit = Digit::get_ledset(7);
 
   digitalWrite(14, 1);
-
+  digitalWrite(15, 1);
+  digitalWrite(18, 1);
+  
   while (true) 
   {
     for (std::size_t i{0}; i < digit.size(); ++i)
