@@ -60,7 +60,7 @@ int main()
 
   clear();
 
-  std::bitset<8> digit = Digit::get_ledset(7);
+  ledset digit = Digit::get_ledset(7);
 
   digitalWrite(14, 1);
   digitalWrite(15, 1);
