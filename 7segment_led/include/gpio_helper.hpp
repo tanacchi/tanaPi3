@@ -1,8 +1,11 @@
 #ifndef INCLUDED_GPIO_HELPER_HPP
 #define INCLUDED_GPIO_HELPER_HPP
 
+#include <iostream>
 #include <unordered_map>
 #include <map>
+#include <stdexcept>
+#include <exception>
 
 #define GPIO2  2
 #define GPIO3  3
@@ -41,7 +44,13 @@ private:
 
 int GpioHelper::to_gpio(int pin)
 {
-  return gpio_pin_table.at(pin);
+  try {
+    return gpio_pin_table.at(pin);
+  }
+  catch(std::out_of_range e) {
+    std::cout << "pin" << pin << " is not a GPIO." << std::endl;
+    std::terminate();
+  }
 }
 
 const std::map<int, int> GpioHelper::gpio_pin_table { 
