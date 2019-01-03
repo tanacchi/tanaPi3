@@ -4,6 +4,7 @@
 
 #include <digit.hpp>
 #include <gpio_helper.hpp>
+#include <gpio_pin.hpp>
 
 std::vector<int> pins = {17, 22, 19, 6, 5, 27, 26, 13};
 
