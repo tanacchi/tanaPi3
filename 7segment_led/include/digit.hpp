@@ -5,6 +5,7 @@
 #include <vector>
 #include <bitset>
 
+#include <gpio_pin.hpp>
 #include <gpio_helper.hpp>
 
 using ledset = std::bitset<8>;
@@ -13,11 +14,13 @@ class Digit
 {
 public:
   Digit(int pin_a, int pin_b, int pin_c, int pin_d, int pin_e, int pin_f, int pin_g, int pin_dp);
-  
+
   static const ledset get_ledset(int number);
 private:
   int pin_a_, pin_b_, pin_c_, pin_d_, pin_e_, pin_f_, pin_g_, pin_dp_;
-  
+
+  std::vector<GpioPin> pins;
+
   static const ledset led_a, led_b, led_c, led_d, led_e, led_f, led_g, led_dp;
 
   static const std::unordered_map<int, ledset> number_led_table;
@@ -46,6 +49,11 @@ const std::unordered_map<int, ledset> Digit::number_led_table {
   {8, led_a | led_b | led_c | led_d | led_e | led_f | led_g },
   {9, led_a | led_b | led_c | led_d |         led_f | led_g },
 }};
+
+Digit::Digit(int pin_a, int pin_b, int pin_c, int pin_d, int pin_e, int pin_f, int pin_g, int pin_dp)
+  : pins{pin_a, pin_b, pin_c, pin_d, pin_e, pin_f, pin_g, pin_dp}
+{
+}
 
 const ledset Digit::get_ledset(int number)
 {
